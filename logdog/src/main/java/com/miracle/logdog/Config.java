@@ -16,15 +16,12 @@ public class Config {
     public String jsonBody;
     public LogPush logPush;
     public String url;
-//    public boolean deleteLogsAfterPushed;
-
 
     public Config(Builder builder) {
         header.putAll(builder.extraHttpHeader);
         jsonBody = builder.extraJsonBody;
         logPush = builder.logPush;
         url = builder.url;
-//        deleteLogsAfterPushed = builder.deleteLogsAfterPushed;
     }
 
     public static class Builder {
@@ -32,12 +29,11 @@ public class Config {
         private String extraJsonBody;
         private LogPush logPush;
         private String url;
-        private boolean deleteLogsAfterPushed;
+        public int pushNetwork;
 
         public Builder() {
             this.url = "http://192.168.6.176:8091";
             this.logPush = new LogPusher();
-//            this.deleteLogsAfterPushed = false;
         }
 
         public Builder extraHttpHeader(Map<String, String> headers) {
@@ -72,14 +68,9 @@ public class Config {
             return this;
         }
 
-//        public Builder deleteLogsAfterPushed(boolean delete) {
-//            this.deleteLogsAfterPushed = delete;
-//            return this;
-//        }
-
         public Config build() {
             return new Config(this);
         }
-
     }
+
 }

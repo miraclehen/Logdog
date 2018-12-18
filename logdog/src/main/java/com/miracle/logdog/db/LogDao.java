@@ -50,7 +50,6 @@ public class LogDao {
         ContentValues cv = new ContentValues();
         cv.put(Constants.COLUMN_CONTENT, content);
         cv.put(Constants.COLUMN_CREATE_DATE_TIME, dateFormat.format(new Date()));
-        cv.put(Constants.COLUMN_PUSHED, 0);
         return db.insert(Constants.TABLE_NAME, null, cv);
     }
 
@@ -129,18 +128,15 @@ public class LogDao {
 
         int idIndex = cursor.getColumnIndex(Constants.COLUMN_ID);
         int contentIndex = cursor.getColumnIndex(Constants.COLUMN_CONTENT);
-        int pushedIndex = cursor.getColumnIndex(Constants.COLUMN_PUSHED);
         int createDateIndex = cursor.getColumnIndex(Constants.COLUMN_CREATE_DATE_TIME);
         int id = cursor.getInt(idIndex);
         String content = cursor.getString(contentIndex);
-        int push = cursor.getInt(pushedIndex);
         String createTime = cursor.getString(createDateIndex);
 
         LogEntity log = new LogEntity();
         log.setId(id);
         log.setContent(content);
         log.setCreateTime(createTime);
-        log.setPushed(push == 1);
 
         return log;
     }

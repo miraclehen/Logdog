@@ -6,11 +6,5 @@ package com.miracle.logdog;
  */
 public class PushStrategy {
 
-    /**App启动上报*/
-    public static final int APP_LAUNCH = 1;
-
-    /**当App处于空闲时机*/
-    public static final int RUNTIME_LEISURE = 2;
-
 
 }
