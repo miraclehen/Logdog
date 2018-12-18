@@ -9,12 +9,11 @@ public class Constants {
     /** 表字段名称 */
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_CONTENT = "content";
-    public static final String COLUMN_PUSHED = "pushed";
     public static final String COLUMN_CREATE_DATE_TIME = "create_datetime";
 
     /** 创建表 */
     public static final String CREATE_TABLE_SQL = "create table if not exists log(_id integer primary key autoincrement," +
-            "content text,pushed integer, create_datetime varchar(30));";
+            "content text, create_datetime varchar(30));";
 
     /** 表名称 */
     public static final String TABLE_NAME = "log";

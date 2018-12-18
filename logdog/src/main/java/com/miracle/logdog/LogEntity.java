@@ -17,8 +17,6 @@ public class LogEntity {
 
     private String createTime;
 
-    private boolean isPushed;
-
     public int getId() {
         return id;
     }
@@ -43,11 +41,4 @@ public class LogEntity {
         this.createTime = createTime;
     }
 
-    public boolean isPushed() {
-        return isPushed;
-    }
-
-    public void setPushed(boolean pushed) {
-        isPushed = pushed;
-    }
 }
