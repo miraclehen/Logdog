@@ -54,8 +54,12 @@ public class Logdog {
         Logdog.context = context;
         Logdog.config = config;
 
-        dao = LogDao.getInstance();
-        executor = Executors.newSingleThreadExecutor();
+        if (dao == null) {
+            dao = LogDao.getInstance();
+        }
+        if (executor == null) {
+            executor = Executors.newSingleThreadExecutor();
+        }
         initialized = true;
     }
 
