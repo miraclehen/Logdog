@@ -117,14 +117,9 @@ public class Logdog {
             @Override
             public void run() {
                 List<LogEntity> list = dao.queryHead(size);
-                while (list != null && !list.isEmpty()) {
+                if (list != null && !list.isEmpty()) {
                     boolean result = doPushWork(list);
-                    if (result) {
-                        doDeleteFromDB(list);
-                        list = dao.queryHead(size);
-                    }else {
-                        list.clear();
-                    }
+                    doDeleteFromDB(list);
                 }
             }
         });
@@ -158,7 +153,7 @@ public class Logdog {
                 return false;
             }
             boolean result = config.logPush.push(config.url, body, config.header);
-            Utils.logi(result ? "成功推送"+list.size()+"条！":"失败推送"+list.size()+"条!");
+            Utils.logi(result ? "成功推送" + list.size() + "条！" : "失败推送" + list.size() + "条!");
             return result;
         }
         return true;
