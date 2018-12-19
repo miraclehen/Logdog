@@ -100,6 +100,8 @@ public class Logdog {
                     if (!result) {
                         saveToDb(json);
                         Utils.loge("提交数据数据到服务器失败！内容：" + json);
+                    }else {
+                        Utils.loge("提交数据数据到服务器成功！内容：" + json);
                     }
                 }
             });
